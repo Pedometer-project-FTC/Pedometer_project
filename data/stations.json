@@ -1,0 +1,61 @@
+{
+  "default_line_id": "tozai",
+  "lines": [
+    {
+      "id": "tozai",
+      "name": "東西線",
+      "color": "#E0522F",
+      "operator": "京都市営地下鉄",
+      "note": "駅順・総距離(17.5km)・駅数(17)・駅番号・沿線の主な観光地は公開情報に基づく実データ。区間ごとの距離配分と各駅の緯度経度は、地図表示用の概算値。大会提出前に正式な区間キロ・座標を確認の上、差し替えることを推奨。観光地情報の外部リンクはGoogleマップ検索へのリンクとして生成しており、施設の公式サイトではない。",
+      "stations": [
+        { "code": "T01", "name": "六地蔵",       "kana": "ろくじぞう",     "romaji": "Rokujizo",            "cum_km": 0.0,  "lat": 34.9211, "lng": 135.8113, "sight": null },
+        { "code": "T02", "name": "石田",         "kana": "いしだ",         "romaji": "Ishida",              "cum_km": 1.4,  "lat": 34.9290, "lng": 135.8010, "sight": null },
+        { "code": "T03", "name": "醍醐",         "kana": "だいご",         "romaji": "Daigo",               "cum_km": 2.6,  "lat": 34.9412, "lng": 135.7897, "sight": "醍醐寺" },
+        { "code": "T04", "name": "小野",         "kana": "おの",           "romaji": "Ono",                 "cum_km": 3.7,  "lat": 34.9520, "lng": 135.7810, "sight": "随心院" },
+        { "code": "T05", "name": "椥辻",         "kana": "なぎつじ",       "romaji": "Nagitsuji",           "cum_km": 4.8,  "lat": 34.9618, "lng": 135.7850, "sight": null },
+        { "code": "T06", "name": "東野",         "kana": "ひがしの",       "romaji": "Higashino",           "cum_km": 5.8,  "lat": 34.9695, "lng": 135.7855, "sight": null },
+        { "code": "T07", "name": "山科",         "kana": "やましな",       "romaji": "Yamashina",           "cum_km": 6.8,  "lat": 34.9752, "lng": 135.7918, "sight": "毘沙門堂" },
+        { "code": "T08", "name": "御陵",         "kana": "みささぎ",       "romaji": "Misasagi",            "cum_km": 8.2,  "lat": 34.9903, "lng": 135.7938, "sight": "天智天皇陵" },
+        { "code": "T09", "name": "蹴上",         "kana": "けあげ",         "romaji": "Keage",               "cum_km": 10.5, "lat": 35.0089, "lng": 135.7868, "sight": "南禅寺" },
+        { "code": "T10", "name": "東山",         "kana": "ひがしやま",     "romaji": "Higashiyama",         "cum_km": 11.4, "lat": 35.0095, "lng": 135.7767, "sight": "平安神宮" },
+        { "code": "T11", "name": "三条京阪",     "kana": "さんじょうけいはん", "romaji": "Sanjo-keihan",     "cum_km": 12.0, "lat": 35.0103, "lng": 135.7712, "sight": "祇園白川" },
+        { "code": "T12", "name": "京都市役所前", "kana": "きょうとしやくしょまえ", "romaji": "Kyoto-shiyakusho-mae", "cum_km": 12.5, "lat": 35.0107, "lng": 135.7681, "sight": "京都文化博物館" },
+        { "code": "T13", "name": "烏丸御池",     "kana": "からすまおいけ", "romaji": "Karasuma-oike",       "cum_km": 13.4, "lat": 35.0106, "lng": 135.7593, "sight": "二条陣屋" },
+        { "code": "T14", "name": "二条城前",     "kana": "にじょうじょうまえ", "romaji": "Nijojo-mae",       "cum_km": 14.3, "lat": 35.0142, "lng": 135.7483, "sight": "二条城" },
+        { "code": "T15", "name": "二条",         "kana": "にじょう",       "romaji": "Nijo",                "cum_km": 14.8, "lat": 35.0142, "lng": 135.7433, "sight": "神泉苑" },
+        { "code": "T16", "name": "西大路御池",   "kana": "にしおおじおいけ", "romaji": "Nishioji-oike",     "cum_km": 15.9, "lat": 35.0143, "lng": 135.7328, "sight": "三条会商店街" },
+        { "code": "T17", "name": "太秦天神川",   "kana": "うずまさてんじんがわ", "romaji": "Uzumasa-tenjingawa", "cum_km": 17.5, "lat": 35.0142, "lng": 135.7205, "sight": "東映太秦映画村" }
+      ]
+    },
+    {
+      "id": "karasuma",
+      "name": "烏丸線",
+      "color": "#009944",
+      "operator": "京都市営地下鉄",
+      "note": "駅順・総距離(13.7km)・駅数(15)・駅番号は公開情報に基づく実データ。区間距離・座標は概算値。",
+      "stations": [
+        { "code": "K01", "name": "国際会館", "kana": "こくさいかいかん", "romaji": "Kokusaikaikan", "cum_km": 0.0,  "lat": 35.0526, "lng": 135.7861, "sight": "宝ヶ池公園" },
+        { "code": "K02", "name": "松ヶ崎",   "kana": "まつがさき",       "romaji": "Matsugasaki",   "cum_km": 1.3,  "lat": 35.0435, "lng": 135.7838, "sight": null },
+        { "code": "K03", "name": "北山",     "kana": "きたやま",         "romaji": "Kitayama",      "cum_km": 2.1,  "lat": 35.0367, "lng": 135.7809, "sight": "京都府立植物園" },
+        { "code": "K04", "name": "北大路",   "kana": "きたおおじ",       "romaji": "Kitaoji",       "cum_km": 3.2,  "lat": 35.0327, "lng": 135.7601, "sight": null },
+        { "code": "K05", "name": "鞍馬口",   "kana": "くらまぐち",       "romaji": "Kuramaguchi",   "cum_km": 4.0,  "lat": 35.0407, "lng": 135.7601, "sight": null },
+        { "code": "K06", "name": "今出川",   "kana": "いまでがわ",       "romaji": "Imadegawa",     "cum_km": 4.8,  "lat": 35.0290, "lng": 135.7601, "sight": "京都御苑" },
+        { "code": "K07", "name": "丸太町",   "kana": "まるたまち",       "romaji": "Marutamachi",   "cum_km": 5.7,  "lat": 35.0212, "lng": 135.7601, "sight": null },
+        { "code": "K08", "name": "烏丸御池", "kana": "からすまおいけ",   "romaji": "Karasuma-oike", "cum_km": 6.7,  "lat": 35.0106, "lng": 135.7593, "sight": "二条陣屋" },
+        { "code": "K09", "name": "四条",     "kana": "しじょう",         "romaji": "Shijo",         "cum_km": 7.6,  "lat": 35.0032, "lng": 135.7593, "sight": "錦市場" },
+        { "code": "K10", "name": "五条",     "kana": "ごじょう",         "romaji": "Gojo",          "cum_km": 8.5,  "lat": 34.9964, "lng": 135.7593, "sight": null },
+        { "code": "K11", "name": "京都",     "kana": "きょうと",         "romaji": "Kyoto",         "cum_km": 9.6,  "lat": 34.9858, "lng": 135.7588, "sight": "京都タワー" },
+        { "code": "K12", "name": "九条",     "kana": "くじょう",         "romaji": "Kujo",          "cum_km": 10.5, "lat": 34.9780, "lng": 135.7588, "sight": "東寺" },
+        { "code": "K13", "name": "十条",     "kana": "じゅうじょう",     "romaji": "Jujo",          "cum_km": 11.3, "lat": 34.9700, "lng": 135.7588, "sight": null },
+        { "code": "K14", "name": "くいな橋", "kana": "くいなばし",       "romaji": "Kuinabashi",    "cum_km": 12.2, "lat": 34.9620, "lng": 135.7588, "sight": null },
+        { "code": "K15", "name": "竹田",     "kana": "たけだ",           "romaji": "Takeda",        "cum_km": 13.7, "lat": 34.9538, "lng": 135.7580, "sight": null }
+      ]
+    }
+  ],
+  "long_distance_routes": [
+    { "name": "京都 → 大阪", "km": 42.8 },
+    { "name": "京都 → 神戸", "km": 74.5 },
+    { "name": "京都 → 名古屋", "km": 138.0 },
+    { "name": "京都 → 東京", "km": 476.3 }
+  ]
+}

@@ -1,0 +1,592 @@
+/* ============================================
+   トコトコ駅歩き - デザイントークン(緑基調版)
+   Color:
+     --green-bar   : ヘッダー/下部ナビの背景(セージグリーン)
+     --green-accent: ボタン・タグ・距離バナーなどのアクセント(明るい緑)
+     --peach       : 歩数ヒーローカードの背景
+     --lavender    : 駅名標のひらがな表示
+   Type:
+     display = Zen Maru Gothic (丸みのある読みやすい見出し・数字書体)
+     body    = Noto Sans JP (視認性重視の本文書体)
+   ============================================ */
+
+:root {
+  --bg: #FFFDF8;
+  --surface: #FFFFFF;
+  --text-primary: #2B2A26;
+  --text-secondary: #6B675C;
+  --border: #ECE4D3;
+
+  --green-bar: #9CBB84;
+  --green-accent: #6FCF57;
+  --green-accent-dark: #4FA83B;
+  --peach: #F3A98B;
+  --peach-dark: #E4805C;
+  --lavender: #C9B8E8;
+  --lavender-dark: #8A6FC9;
+  --map-border: #7FB8E0;
+
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+
+  --font-display: 'Zen Maru Gothic', sans-serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--green-accent-dark);
+  outline-offset: 2px;
+}
+
+img { max-width: 100%; display: block; }
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tab-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.tab-panel.hidden {
+  display: none;
+}
+
+/* ---------- 共通アプリヘッダー ---------- */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--green-bar);
+  padding: 12px 16px;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+}
+
+.app-header-spacer {
+  flex: 1;
+}
+
+.header-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* ---------- 日付 + 更新ボタン ---------- */
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.date-pill {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 20px;
+  border-radius: 999px;
+}
+
+.refresh-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--green-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.refresh-btn:active {
+  background: var(--green-accent-dark);
+}
+
+.refresh-btn.spinning svg {
+  animation: refresh-spin 0.7s linear;
+}
+
+@keyframes refresh-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- カード共通 ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.section-sub {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+/* ---------- ヒーロー: 歩数 + マスコット ---------- */
+.hero-card {
+  background: linear-gradient(135deg, var(--peach), var(--peach-dark));
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-label {
+  font-weight: 700;
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.hero-number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 42px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.hero-number small {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.mascot-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transform-origin: 50% 90%;
+}
+
+/* ---------- 移動距離バナー ---------- */
+.distance-banner {
+  background: var(--green-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  margin: 0 16px;
+}
+
+.distance-banner span {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* ---------- 現在区間(駅名標風)カード ---------- */
+.route-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.route-arrow {
+  color: var(--green-accent);
+  flex-shrink: 0;
+}
+
+.station-sign {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 2px solid var(--peach-dark);
+  border-radius: var(--radius-md);
+  padding: 10px 8px;
+  min-width: 0;
+}
+
+.station-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--peach-dark);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.station-kanji {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 900;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.station-romaji {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.station-kana {
+  background: var(--lavender);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.arrival-toast {
+  margin: -8px 16px 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--peach-dark);
+  text-align: center;
+}
+
+.arrival-toast.hidden {
+  display: none;
+}
+
+/* ---------- 情報行 ---------- */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 16px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.info-label {
+  background: var(--green-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 14px;
+  flex-shrink: 0;
+  min-width: 108px;
+  text-align: center;
+}
+
+.info-value {
+  padding: 12px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  flex: 1;
+}
+
+.info-value a {
+  color: var(--green-accent-dark);
+  text-decoration: underline;
+}
+
+.info-icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+  border-radius: 8px;
+}
+
+/* ---------- 地図 ---------- */
+.map-card {
+  margin: 0 16px;
+  border: 3px solid var(--map-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.map-container {
+  width: 100%;
+  height: 220px;
+}
+
+/* ---------- 路線図スタンプ(アチーブタブ) ---------- */
+.ruler-svg-wrap {
+  width: 100%;
+  overflow-x: auto;
+  padding: 4px 0 8px;
+}
+
+.ruler-svg-wrap svg {
+  display: block;
+  min-width: 100%;
+}
+
+/* ---------- 累計距離 ---------- */
+.long-distance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.long-route {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.long-route-head {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.long-route-track {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.long-route-fill {
+  height: 100%;
+  background: var(--peach-dark);
+}
+
+.long-route-fill.complete {
+  background: var(--green-accent-dark);
+}
+
+/* ---------- 履歴一覧 ---------- */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+
+.history-date {
+  font-weight: 700;
+}
+
+.history-detail {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.empty-text {
+  color: var(--text-secondary);
+  font-size: 15px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+/* ---------- 設定(アカウントタブ) ---------- */
+.setting-label {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 16px 0 6px;
+}
+
+.setting-select,
+.setting-input {
+  width: 100%;
+  min-height: 52px;
+  padding: 8px 12px;
+  font-size: 17px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.save-btn {
+  width: 100%;
+  min-height: 60px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--green-accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.save-btn:active {
+  background: var(--green-accent-dark);
+}
+
+.save-btn.disabled,
+.save-btn:disabled {
+  background: var(--border);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+/* ---------- 下部タブナビゲーション ---------- */
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--green-bar);
+  display: flex;
+  padding: 6px 0 max(6px, env(safe-area-inset-bottom));
+  z-index: 40;
+  border-top: 6px solid var(--peach);
+}
+
+.nav-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  min-height: 56px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  color: #fff;
+}
+
+/* ============================================
+   マスコット(img要素)のアニメーション状態
+   ============================================ */
+.mascot-idle { animation: mascot-breathe 2.4s ease-in-out infinite; }
+.mascot-walking { animation: mascot-bob 0.5s ease-in-out infinite; }
+.mascot-celebrate { animation: mascot-jump 0.8s ease-in-out 2; }
+
+@keyframes mascot-breathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-2px) scale(1.02); }
+}
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-3deg); }
+  75% { transform: translateY(-5px) rotate(3deg); }
+}
+
+@keyframes mascot-jump {
+  0% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-24px) rotate(-10deg); }
+  55% { transform: translateY(0) rotate(8deg); }
+  75% { transform: translateY(-10px) rotate(-4deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.confetti-piece {
+  position: absolute;
+  top: 10%;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  animation: confetti-fall 1.4s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(70px) rotate(360deg); opacity: 0; }
+}
+
+/* ---------- レスポンシブ微調整 ---------- */
+@media (max-width: 340px) {
+  .hero-number { font-size: 34px; }
+  .station-kanji { font-size: 16px; }
+}
